@@ -97,12 +97,13 @@
 		D6AC84E920866BA60098B099 /* StarWarsFun */ = {
 			isa = PBXGroup;
 			children = (
-				D6AC84EA20866BA60098B099 /* AppDelegate.swift */,
-				D6AC84EC20866BA60098B099 /* ViewController.swift */,
-				D6AC84EE20866BA60098B099 /* Main.storyboard */,
-				D6AC84F120866BA80098B099 /* Assets.xcassets */,
-				D6AC84F320866BA80098B099 /* LaunchScreen.storyboard */,
 				D6AC84F620866BA80098B099 /* Info.plist */,
+				D6AC84EA20866BA60098B099 /* AppDelegate.swift */,
+				D6AC851820866D130098B099 /* Model */,
+				D6AC851920866D1B0098B099 /* View */,
+				D6AC851A20866D250098B099 /* Controller */,
+				D6AC851B20866D3B0098B099 /* Storyboard */,
+				D6AC851C20866D440098B099 /* Resources */,
 			);
 			path = StarWarsFun;
 			sourceTree = "<group>";
@@ -123,6 +124,45 @@
 				D6AC850C20866BA80098B099 /* Info.plist */,
 			);
 			path = StarWarsFunUITests;
+			sourceTree = "<group>";
+		};
+		D6AC851820866D130098B099 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D6AC851920866D1B0098B099 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D6AC851A20866D250098B099 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				D6AC84EC20866BA60098B099 /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		D6AC851B20866D3B0098B099 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				D6AC84EE20866BA60098B099 /* Main.storyboard */,
+				D6AC84F320866BA80098B099 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		D6AC851C20866D440098B099 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				D6AC84F120866BA80098B099 /* Assets.xcassets */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -433,6 +473,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = R97P94E2EN;
 				INFOPLIST_FILE = StarWarsFun/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -440,7 +481,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.James.StarWarsFun;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -451,6 +492,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = R97P94E2EN;
 				INFOPLIST_FILE = StarWarsFun/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -458,7 +500,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.James.StarWarsFun;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
