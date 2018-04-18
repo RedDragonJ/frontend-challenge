@@ -8,15 +8,15 @@
 
 import Foundation
 
-protocol DownloadPeopleDelegate {
+protocol RetrieveDataDelegate {
     func getData(next: String?, previous: String?, people: NSArray)
 }
 
-class DownloadPeople: NSObject {
+class RetrieveData: NSObject {
     
     private final let urlStr = "https://swapi.co/api/people/"
     
-    var delegate: DownloadPeopleDelegate?
+    var delegate: RetrieveDataDelegate?
     
     private struct PeopleList {
         let count: Int
