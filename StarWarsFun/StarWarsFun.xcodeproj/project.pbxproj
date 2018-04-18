@@ -19,6 +19,9 @@
 		D6AC853B2086D6EC0098B099 /* DownloadPeople.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6AC853A2086D6EC0098B099 /* DownloadPeople.swift */; };
 		D6AC853D2086E6A10098B099 /* StarWarData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6AC853C2086E6A10098B099 /* StarWarData.swift */; };
 		D6AC85402086EA9E0098B099 /* ParseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6AC853F2086EA9E0098B099 /* ParseManager.swift */; };
+		D6AC85452087B44E0098B099 /* LoadingViewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6AC85442087B44E0098B099 /* LoadingViewHelper.swift */; };
+		D6AC85482087BBFE0098B099 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6AC85472087BBFE0098B099 /* DetailViewController.swift */; };
+		D6AC854A2087BF0A0098B099 /* SegueData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6AC85492087BF0A0098B099 /* SegueData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +62,9 @@
 		D6AC853A2086D6EC0098B099 /* DownloadPeople.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadPeople.swift; sourceTree = "<group>"; };
 		D6AC853C2086E6A10098B099 /* StarWarData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarWarData.swift; sourceTree = "<group>"; };
 		D6AC853F2086EA9E0098B099 /* ParseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseManager.swift; sourceTree = "<group>"; };
+		D6AC85442087B44E0098B099 /* LoadingViewHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingViewHelper.swift; sourceTree = "<group>"; };
+		D6AC85472087BBFE0098B099 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		D6AC85492087BF0A0098B099 /* SegueData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegueData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,8 +115,7 @@
 		D6AC84E920866BA60098B099 /* StarWarsFun */ = {
 			isa = PBXGroup;
 			children = (
-				D6AC8537208672E00098B099 /* Reachability.h */,
-				D6AC8538208672E00098B099 /* Reachability.m */,
+				D6AC8536208672DF0098B099 /* StarWarsFun-Bridging-Header.h */,
 				D6AC84F620866BA80098B099 /* Info.plist */,
 				D6AC84EA20866BA60098B099 /* AppDelegate.swift */,
 				D6AC851820866D130098B099 /* Model */,
@@ -119,7 +124,6 @@
 				D6AC851E20866FB60098B099 /* Helper */,
 				D6AC851B20866D3B0098B099 /* Storyboard */,
 				D6AC851C20866D440098B099 /* Resources */,
-				D6AC8536208672DF0098B099 /* StarWarsFun-Bridging-Header.h */,
 			);
 			path = StarWarsFun;
 			sourceTree = "<group>";
@@ -146,6 +150,7 @@
 			isa = PBXGroup;
 			children = (
 				D6AC853C2086E6A10098B099 /* StarWarData.swift */,
+				D6AC85492087BF0A0098B099 /* SegueData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -162,6 +167,7 @@
 			isa = PBXGroup;
 			children = (
 				D6AC84EC20866BA60098B099 /* ViewController.swift */,
+				D6AC85472087BBFE0098B099 /* DetailViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -186,6 +192,7 @@
 		D6AC851E20866FB60098B099 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				D6AC85462087B4510098B099 /* Loader */,
 				D6AC853E2086EA810098B099 /* ParseData */,
 				D6AC851F208671110098B099 /* Network */,
 			);
@@ -195,6 +202,8 @@
 		D6AC851F208671110098B099 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				D6AC8537208672E00098B099 /* Reachability.h */,
+				D6AC8538208672E00098B099 /* Reachability.m */,
 				D6AC8522208671110098B099 /* NetworkManager.swift */,
 			);
 			path = Network;
@@ -206,6 +215,14 @@
 				D6AC853F2086EA9E0098B099 /* ParseManager.swift */,
 			);
 			path = ParseData;
+			sourceTree = "<group>";
+		};
+		D6AC85462087B4510098B099 /* Loader */ = {
+			isa = PBXGroup;
+			children = (
+				D6AC85442087B44E0098B099 /* LoadingViewHelper.swift */,
+			);
+			path = Loader;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -340,9 +357,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D6AC85482087BBFE0098B099 /* DetailViewController.swift in Sources */,
 				D6AC85402086EA9E0098B099 /* ParseManager.swift in Sources */,
 				D6AC853D2086E6A10098B099 /* StarWarData.swift in Sources */,
+				D6AC854A2087BF0A0098B099 /* SegueData.swift in Sources */,
 				D6AC84ED20866BA60098B099 /* ViewController.swift in Sources */,
+				D6AC85452087B44E0098B099 /* LoadingViewHelper.swift in Sources */,
 				D6AC8526208671110098B099 /* NetworkManager.swift in Sources */,
 				D6AC853B2086D6EC0098B099 /* DownloadPeople.swift in Sources */,
 				D6AC8539208672E00098B099 /* Reachability.m in Sources */,

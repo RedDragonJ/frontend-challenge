@@ -7,3 +7,10 @@
 //
 
 import Foundation
+
+class SegueData {
+    var peopleNameForSegue: String?
+    var peopleGenderForSegue: String?
+    var peopleHeightForSegue: String?
+    var peopleHairColorForSegue: String?
+}
