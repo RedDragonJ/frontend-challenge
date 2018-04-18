@@ -19,14 +19,12 @@ class ViewController: UIViewController {
     
     private let loader = LoadingViewHelper()
     private let swData = StarWarData()
-    private let segueData = SegueData()
     
+    private var segueData: StarWarPerson?
     private var people: DownloadPeople?
         
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        print("VC did load")
         
         switch self.network.checkStatus() {
         case .NoNetwork, .Unknown:
@@ -45,6 +43,8 @@ class ViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        // Check if the next and previous are empty
+        // First time definetley empty
         if self.swData.nextPage != nil && self.swData.nextPage != "" {
             self.nextButton(isEnable: true)
         }
@@ -75,10 +75,7 @@ class ViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "Details" {
             let dvc = segue.destination as! DetailViewController
-            dvc.name = self.segueData.peopleNameForSegue!
-            dvc.gender = self.segueData.peopleGenderForSegue!
-            dvc.height = self.segueData.peopleHeightForSegue!
-            dvc.hairColor = self.segueData.peopleHairColorForSegue!
+            dvc.data = self.segueData!
         }
     }
 }
@@ -87,6 +84,7 @@ class ViewController: UIViewController {
 extension ViewController: DownloadPeopleDelegate {
     func getData(next: String?, previous: String?, people: NSArray) {
         
+        // Clean up date for another page of data
         self.swData.removeData()
         
         self.swData.nextPage = next
@@ -126,11 +124,15 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-        self.segueData.peopleNameForSegue = self.swData.names[indexPath.row]
-        self.segueData.peopleGenderForSegue = self.swData.genders[indexPath.row]
-        self.segueData.peopleHeightForSegue = self.swData.heights[indexPath.row]
-        self.segueData.peopleHairColorForSegue = self.swData.hairColors[indexPath.row]
+        // Only let seguedata exist at time but no need keep it
+        // Prepare data for segue
+        self.segueData = StarWarPerson()
+        self.segueData?.peopleNameForSegue = self.swData.names[indexPath.row]
+        self.segueData?.peopleGenderForSegue = self.swData.genders[indexPath.row]
+        self.segueData?.peopleHeightForSegue = self.swData.heights[indexPath.row]
+        self.segueData?.peopleHairColorForSegue = self.swData.hairColors[indexPath.row]
         
+        // Segue to next viewcontroller
         self.performSegue(withIdentifier: "Details", sender: self)
     }
 }

@@ -21,7 +21,7 @@
 		D6AC85402086EA9E0098B099 /* ParseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6AC853F2086EA9E0098B099 /* ParseManager.swift */; };
 		D6AC85452087B44E0098B099 /* LoadingViewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6AC85442087B44E0098B099 /* LoadingViewHelper.swift */; };
 		D6AC85482087BBFE0098B099 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6AC85472087BBFE0098B099 /* DetailViewController.swift */; };
-		D6AC854A2087BF0A0098B099 /* SegueData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6AC85492087BF0A0098B099 /* SegueData.swift */; };
+		D6AC854A2087BF0A0098B099 /* StarWarPerson.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6AC85492087BF0A0098B099 /* StarWarPerson.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,7 +64,7 @@
 		D6AC853F2086EA9E0098B099 /* ParseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseManager.swift; sourceTree = "<group>"; };
 		D6AC85442087B44E0098B099 /* LoadingViewHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingViewHelper.swift; sourceTree = "<group>"; };
 		D6AC85472087BBFE0098B099 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
-		D6AC85492087BF0A0098B099 /* SegueData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegueData.swift; sourceTree = "<group>"; };
+		D6AC85492087BF0A0098B099 /* StarWarPerson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarWarPerson.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,7 +150,7 @@
 			isa = PBXGroup;
 			children = (
 				D6AC853C2086E6A10098B099 /* StarWarData.swift */,
-				D6AC85492087BF0A0098B099 /* SegueData.swift */,
+				D6AC85492087BF0A0098B099 /* StarWarPerson.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -360,7 +360,7 @@
 				D6AC85482087BBFE0098B099 /* DetailViewController.swift in Sources */,
 				D6AC85402086EA9E0098B099 /* ParseManager.swift in Sources */,
 				D6AC853D2086E6A10098B099 /* StarWarData.swift in Sources */,
-				D6AC854A2087BF0A0098B099 /* SegueData.swift in Sources */,
+				D6AC854A2087BF0A0098B099 /* StarWarPerson.swift in Sources */,
 				D6AC84ED20866BA60098B099 /* ViewController.swift in Sources */,
 				D6AC85452087B44E0098B099 /* LoadingViewHelper.swift in Sources */,
 				D6AC8526208671110098B099 /* NetworkManager.swift in Sources */,
