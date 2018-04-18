@@ -22,17 +22,17 @@ class NetworkManager {
     static let shared = NetworkManager()
     private init(){}
     
-    func checkStatus(completion: @escaping (_ status: NetworkStatus) -> Void) {
+    func checkStatus() -> NetworkStatus {
         if let reachability = Reachability.forInternetConnection() {
             reachability.startNotifier()
             let status = reachability.currentReachabilityStatus()
             if status == .init(0) {
                 // NotReachable
-                completion(NetworkStatus.NoNetwork)
+                return NetworkStatus.NoNetwork
             }
             else if status == .init(1) {
                 // ReachableViaWiFi
-                completion(NetworkStatus.Wifi)
+                return NetworkStatus.Wifi
             }
             else if status == .init(2) {
                 // ReachableViaWWAN
@@ -50,17 +50,17 @@ class NetworkManager {
                          CTRadioAccessTechnologyCDMAEVDORevB,
                          CTRadioAccessTechnologyeHRPD:
                         // Reachable Via Edge, 2G, 3G, etc.
-                        completion(NetworkStatus.OtherNetwork)
+                        return NetworkStatus.OtherNetwork
                     case CTRadioAccessTechnologyLTE:
                         // Reachable Via 4G
-                        completion(NetworkStatus.FourG)
+                        return NetworkStatus.FourG
                     default:
-                        completion(NetworkStatus.Unknown)
-                        break
+                        return NetworkStatus.Unknown
                     }
                 }
             }
         }
+        return NetworkStatus.Unknown
     }
     
     func requestDataWith(urlStr: String, completion: @escaping (_ value: Data?, _ error: String?) -> Void) {
