@@ -10,6 +10,8 @@ import Foundation
 
 class StarWarData {
     
+    let dataObjects = ["name","gender","height","hair_color"]
+    
     var nextPage: String?
     var previousPage: String?
     
@@ -18,4 +20,14 @@ class StarWarData {
     var heights = [String]()
     var hairColors = [String]()
     var peopleArr: NSArray?
+    
+    func removeData() {
+        self.nextPage = nil
+        self.previousPage = nil
+        self.names.removeAll()
+        self.genders.removeAll()
+        self.heights.removeAll()
+        self.hairColors.removeAll()
+        self.peopleArr = nil
+    }
 }

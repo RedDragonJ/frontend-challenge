@@ -8,9 +8,15 @@
 
 import Foundation
 
+protocol DownloadPeopleDelegate {
+    func getData(next: String?, previous: String?, people: NSArray)
+}
+
 class DownloadPeople: NSObject {
     
     final let urlStr = "https://swapi.co/api/people/"
+    
+    var delegate: DownloadPeopleDelegate?
     
     struct PeopleList {
         let count: Int
@@ -26,8 +32,23 @@ class DownloadPeople: NSObject {
         }
     }
     
-    func requestPeopleData(completion: @escaping (_ next: String?, _ previous: String?, _ people: NSArray) -> Void) {
-        NetworkManager.shared.requestDataWith(urlStr: self.urlStr, completion: {(data, error) in
+    override init() {
+        super.init()
+        self.requestPeopleData(withUrl: nil)
+    }
+    
+    func requestPeopleData(withUrl: String?) {
+        
+        var networkStr = String()
+        
+        if withUrl == nil {
+            networkStr = self.urlStr
+        }
+        else {
+            networkStr = withUrl!
+        }
+        
+        NetworkManager.shared.requestDataWith(urlStr: networkStr, completion: {(data, error) in
             if let err = error {
                 print(err)
             }
@@ -35,7 +56,12 @@ class DownloadPeople: NSObject {
                 do {
                     guard let json = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as? [String: Any] else {return}
                     let peoplelist = PeopleList(json: json)
-                    completion(peoplelist.nextUrl, peoplelist.previousUrl, peoplelist.results)
+                    if let del = self.delegate {
+                        del.getData(next: peoplelist.nextUrl, previous: peoplelist.previousUrl, people: peoplelist.results)
+                    }
+                    else {
+                        print("Error: Must conform to DownloadPeopleDelegate")
+                    }
                 } catch let jsonError {
                     print("Error with json: ", jsonError)
                 }
