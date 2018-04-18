@@ -26,11 +26,14 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Check network status
         switch self.network.checkStatus() {
         case .NoNetwork, .Unknown:
+            // Show alert if no network or unknown
             self.createAlertLabel()
             break
         case .FourG, .Wifi, .OtherNetwork:
+            // Present loader and prepare for API request
             self.presentLoader()
             self.people = DownloadPeople()
             self.people?.delegate = self
@@ -82,6 +85,8 @@ class ViewController: UIViewController {
 
 //MARK: - Data Handle
 extension ViewController: DownloadPeopleDelegate {
+    
+    // Return the API request data with a call back function so no dirct access to the data or the request
     func getData(next: String?, previous: String?, people: NSArray) {
         
         // Clean up date for another page of data
@@ -91,6 +96,7 @@ extension ViewController: DownloadPeopleDelegate {
         self.swData.previousPage = previous
         self.swData.peopleArr = people
         
+        // Parse the array of dictionary data and store in the data model class
         self.swData.names.append(contentsOf: self.parseData.parseArrayOfDictionary(self.swData.peopleArr!, object: self.swData.dataObjects[0]))
         self.swData.genders.append(contentsOf: self.parseData.parseArrayOfDictionary(self.swData.peopleArr!, object: self.swData.dataObjects[1]))
         self.swData.heights.append(contentsOf: self.parseData.parseArrayOfDictionary(self.swData.peopleArr!, object: self.swData.dataObjects[2]))

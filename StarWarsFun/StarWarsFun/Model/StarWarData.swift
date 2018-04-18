@@ -8,8 +8,8 @@
 
 import Foundation
 
+// TODO: Could use struct
 class StarWarData {
-    
     let dataObjects = ["name","gender","height","hair_color"]
     
     var nextPage: String?

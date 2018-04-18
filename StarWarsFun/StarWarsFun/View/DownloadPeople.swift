@@ -14,11 +14,11 @@ protocol DownloadPeopleDelegate {
 
 class DownloadPeople: NSObject {
     
-    final let urlStr = "https://swapi.co/api/people/"
+    private final let urlStr = "https://swapi.co/api/people/"
     
     var delegate: DownloadPeopleDelegate?
     
-    struct PeopleList {
+    private struct PeopleList {
         let count: Int
         let nextUrl: String
         let previousUrl: String

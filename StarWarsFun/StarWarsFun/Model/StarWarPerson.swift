@@ -9,6 +9,7 @@
 import Foundation
 
 /* Temp Data Model */
+// TODO: Could use struct
 class StarWarPerson {
     var peopleNameForSegue: String?
     var peopleGenderForSegue: String?
