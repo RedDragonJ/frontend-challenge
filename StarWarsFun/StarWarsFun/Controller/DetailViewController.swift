@@ -16,18 +16,17 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var heightLabel: UILabel!
     @IBOutlet weak var hairColorLabel: UILabel!
     
-    var name: String?
-    var gender: String?
-    var height: String?
-    var hairColor: String?
+    // Segue data
+    var data: StarWarPerson?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print("DetailVC Did Load")
-        self.nameLabel.text = self.name!
-        self.genderLabel.text = self.gender!
-        self.heightLabel.text = "\(self.height!)cm"
-        self.hairColorLabel.text = "\(self.hairColor!) hair"
+        // TODO: data could be nil at time, should check in production
+        // Display the detailed data
+        self.nameLabel.text = self.data!.peopleNameForSegue!
+        self.genderLabel.text = self.data!.peopleGenderForSegue!
+        self.heightLabel.text = "\(self.data!.peopleHeightForSegue!)cm"
+        self.hairColorLabel.text = "\(self.data!.peopleHairColorForSegue!) hair"
     }
 }

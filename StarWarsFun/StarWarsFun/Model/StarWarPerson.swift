@@ -8,7 +8,8 @@
 
 import Foundation
 
-class SegueData {
+/* Temp Data Model */
+class StarWarPerson {
     var peopleNameForSegue: String?
     var peopleGenderForSegue: String?
     var peopleHeightForSegue: String?
