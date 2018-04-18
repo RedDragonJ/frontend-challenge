@@ -14,14 +14,13 @@ class ViewController: UIViewController {
     private var nextButton: UIButton!
     private var previousButton: UIButton!
 
-    private let parseData = ParseManager.shared
     private let network = NetworkManager.shared
     
     private let loader = LoadingViewHelper()
     private let swData = StarWarData()
     
-    private var segueData: StarWarPerson?
-    private var people: DownloadPeople?
+    private var person: StarWarPerson?
+    private var data: RetrieveData?
         
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,8 +34,8 @@ class ViewController: UIViewController {
         case .FourG, .Wifi, .OtherNetwork:
             // Present loader and prepare for API request
             self.presentLoader()
-            self.people = DownloadPeople()
-            self.people?.delegate = self
+            self.data = RetrieveData()
+            self.data?.delegate = self
             break
         }
         
@@ -62,7 +61,7 @@ class ViewController: UIViewController {
             self.nextButton(isEnable: false)
             self.previousButton(isEnable: false)
             self.presentLoader()
-            self.people?.requestPeopleData(withUrl: self.swData.nextPage!)
+            self.data?.requestPeopleData(withUrl: self.swData.nextPage!)
         }
     }
     
@@ -71,20 +70,20 @@ class ViewController: UIViewController {
             self.nextButton(isEnable: false)
             self.previousButton(isEnable: false)
             self.presentLoader()
-            self.people?.requestPeopleData(withUrl: self.swData.previousPage!)
+            self.data?.requestPeopleData(withUrl: self.swData.previousPage!)
         }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "Details" {
             let dvc = segue.destination as! DetailViewController
-            dvc.data = self.segueData!
+            dvc.data = self.person!
         }
     }
 }
 
 //MARK: - Data Handle
-extension ViewController: DownloadPeopleDelegate {
+extension ViewController: RetrieveDataDelegate {
     
     // Return the API request data with a call back function so no dirct access to the data or the request
     func getData(next: String?, previous: String?, people: NSArray) {
@@ -95,12 +94,7 @@ extension ViewController: DownloadPeopleDelegate {
         self.swData.nextPage = next
         self.swData.previousPage = previous
         self.swData.peopleArr = people
-        
-        // Parse the array of dictionary data and store in the data model class
-        self.swData.names.append(contentsOf: self.parseData.parseArrayOfDictionary(self.swData.peopleArr!, object: self.swData.dataObjects[0]))
-        self.swData.genders.append(contentsOf: self.parseData.parseArrayOfDictionary(self.swData.peopleArr!, object: self.swData.dataObjects[1]))
-        self.swData.heights.append(contentsOf: self.parseData.parseArrayOfDictionary(self.swData.peopleArr!, object: self.swData.dataObjects[2]))
-        self.swData.hairColors.append(contentsOf: self.parseData.parseArrayOfDictionary(self.swData.peopleArr!, object: self.swData.dataObjects[3]))
+        self.swData.parseData()
         
         if self.swData.nextPage != "" {
             self.nextButton(isEnable: true)
@@ -132,11 +126,11 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         
         // Only let seguedata exist at time but no need keep it
         // Prepare data for segue
-        self.segueData = StarWarPerson()
-        self.segueData?.peopleNameForSegue = self.swData.names[indexPath.row]
-        self.segueData?.peopleGenderForSegue = self.swData.genders[indexPath.row]
-        self.segueData?.peopleHeightForSegue = self.swData.heights[indexPath.row]
-        self.segueData?.peopleHairColorForSegue = self.swData.hairColors[indexPath.row]
+        self.person = StarWarPerson()
+        self.person?.peopleNameForSegue = self.swData.names[indexPath.row]
+        self.person?.peopleGenderForSegue = self.swData.genders[indexPath.row]
+        self.person?.peopleHeightForSegue = self.swData.heights[indexPath.row]
+        self.person?.peopleHairColorForSegue = self.swData.hairColors[indexPath.row]
         
         // Segue to next viewcontroller
         self.performSegue(withIdentifier: "Details", sender: self)

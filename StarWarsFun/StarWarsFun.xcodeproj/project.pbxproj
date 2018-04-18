@@ -16,7 +16,7 @@
 		D6AC850B20866BA80098B099 /* StarWarsFunUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6AC850A20866BA80098B099 /* StarWarsFunUITests.swift */; };
 		D6AC8526208671110098B099 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6AC8522208671110098B099 /* NetworkManager.swift */; };
 		D6AC8539208672E00098B099 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = D6AC8538208672E00098B099 /* Reachability.m */; };
-		D6AC853B2086D6EC0098B099 /* DownloadPeople.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6AC853A2086D6EC0098B099 /* DownloadPeople.swift */; };
+		D6AC853B2086D6EC0098B099 /* RetrieveData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6AC853A2086D6EC0098B099 /* RetrieveData.swift */; };
 		D6AC853D2086E6A10098B099 /* StarWarData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6AC853C2086E6A10098B099 /* StarWarData.swift */; };
 		D6AC85402086EA9E0098B099 /* ParseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6AC853F2086EA9E0098B099 /* ParseManager.swift */; };
 		D6AC85452087B44E0098B099 /* LoadingViewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6AC85442087B44E0098B099 /* LoadingViewHelper.swift */; };
@@ -59,7 +59,7 @@
 		D6AC8536208672DF0098B099 /* StarWarsFun-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "StarWarsFun-Bridging-Header.h"; sourceTree = "<group>"; };
 		D6AC8537208672E00098B099 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		D6AC8538208672E00098B099 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
-		D6AC853A2086D6EC0098B099 /* DownloadPeople.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadPeople.swift; sourceTree = "<group>"; };
+		D6AC853A2086D6EC0098B099 /* RetrieveData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetrieveData.swift; sourceTree = "<group>"; };
 		D6AC853C2086E6A10098B099 /* StarWarData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarWarData.swift; sourceTree = "<group>"; };
 		D6AC853F2086EA9E0098B099 /* ParseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseManager.swift; sourceTree = "<group>"; };
 		D6AC85442087B44E0098B099 /* LoadingViewHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingViewHelper.swift; sourceTree = "<group>"; };
@@ -158,7 +158,7 @@
 		D6AC851920866D1B0098B099 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				D6AC853A2086D6EC0098B099 /* DownloadPeople.swift */,
+				D6AC853A2086D6EC0098B099 /* RetrieveData.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -364,7 +364,7 @@
 				D6AC84ED20866BA60098B099 /* ViewController.swift in Sources */,
 				D6AC85452087B44E0098B099 /* LoadingViewHelper.swift in Sources */,
 				D6AC8526208671110098B099 /* NetworkManager.swift in Sources */,
-				D6AC853B2086D6EC0098B099 /* DownloadPeople.swift in Sources */,
+				D6AC853B2086D6EC0098B099 /* RetrieveData.swift in Sources */,
 				D6AC8539208672E00098B099 /* Reachability.m in Sources */,
 				D6AC84EB20866BA60098B099 /* AppDelegate.swift in Sources */,
 			);
